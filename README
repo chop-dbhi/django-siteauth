@@ -1,0 +1,16 @@
+SiteAuth
+--------
+Middleware that applies Apache-like access control.
+
+Add ``siteauth.middleware.SiteAuthenticationMiddleware`` after
+``django.contrib.auth.middleware.AuthenticationMiddleware`` in
+your ``MIDDLEWARE_CLASSES`` tuple.
+
+Below are the settings:
+
+- ``SITEAUTH_ACCESS_ORDER`` - either ``allow/deny`` or ``deny/allow``
+(default)
+- ``SITEAUTH_ALLOW_URLS`` - a list of regexes that explicitly allows
+non-athenticated access
+- ``SITEAUTH_DENY_URLS`` - a list of regexes that explicitly denies
+non-authenticated access
