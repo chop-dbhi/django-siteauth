@@ -1,6 +1,6 @@
+import json
 import re
 from django.conf import settings
-from django.utils import simplejson
 from django.http import HttpResponse, HttpResponseRedirect
 
 # dumb regex to extract the referer's path
@@ -26,7 +26,7 @@ class SiteAuthenticationMiddleware(object):
 
         # return JSON payload which can be caught during response parsing
         # by the client that will redirect the user to the `redirect` URL
-        return HttpResponse(simplejson.dumps({'redirect': redirect}),
+        return HttpResponse(json.dumps({'redirect': redirect}),
             mimetype='application/json', status=302)
 
     def _process_request(self, request):
