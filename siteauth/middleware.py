@@ -27,7 +27,7 @@ class SiteAuthenticationMiddleware(object):
         # return JSON payload which can be caught during response parsing
         # by the client that will redirect the user to the `redirect` URL
         return HttpResponse(json.dumps({'redirect': redirect}),
-            mimetype='application/json', status=302)
+            content_type='application/json', status=302)
 
     def _process_request(self, request):
         redirect = '%s?next=%s' % (LOGIN_URL, request.path)
